@@ -13,7 +13,7 @@ services:
       - '--config.file=/etc/prometheus/prometheus.yml'
     restart: always
     networks:
-      - promnet
+      - monitor
 
   grafana:
     image: grafana/grafana
@@ -24,8 +24,8 @@ services:
       - ./grafana/volume:/var/lib/grafana
     restart: always
     networks:
-      - promnet
+      - monitor
 
 networks:
-  promnet:
+  monitor:
     driver: bridge
