@@ -3,6 +3,7 @@ services:
   prometheus:
     container_name: prometheus
     image: prom/prometheus
+    user: root
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
       - ./prometheus_data:/prometheus
@@ -12,6 +13,7 @@ services:
   grafana:
     container_name: grafana
     image: grafana/grafana
+    user: root
     depends_on:
       - prometheus
     ports:
